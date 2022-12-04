@@ -3,7 +3,6 @@ module.exports = {
     name: "deposit",
     aliases: ["depositar", "dep"],
     desc: "Sirve para depositar dinero en el banco",
-    premium: true,
     run: async (client, message, args, prefix) => {
         //leemos la economia el usuario
         let data = await ecoSchema.findOne({userID: message.author.id});

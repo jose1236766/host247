@@ -5,7 +5,6 @@ module.exports = {
     name: "rob",
     aliases: ["steal", "robar"],
     desc: "Sirve para robar monedas a un usuario",
-    premium: true,
     run: async (client, message, args, prefix) => {
         if (!args.length) return message.reply("❌ **Tienes que especificar al usuario para robar!**")
         const usuario = message.guild.members.cache.get(args[0]) || message.mentions.members.filter(m => m.guild.id == message.guild.id).first();
@@ -47,10 +46,3 @@ module.exports = {
         return message.reply(`✅ **Has robado \`${cantidad} monedas\` a \`${usuario.user.tag}\`**`)
     }
 }
-
-/*
-╔═════════════════════════════════════════════════════╗
-║    || - || Desarrollado por dewstouh#1088 || - ||   ║
-║    ----------| discord.gg/MBPsvcphGf |----------    ║
-╚═════════════════════════════════════════════════════╝
-*/

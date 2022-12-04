@@ -28,7 +28,7 @@ module.exports = {
                     .setDescription(`**Razón:** \n\`\`\`yml\n${razon}\`\`\``)
                     .setColor(client.color)
                     .setTimestamp()
-                ]}).catch(() => {message.reply(`No se le ha podido enviar el DM al usuario!`)});
+                ]}).catch(() => {message.reply(`No se le ha podido enviar el mensaje de baneo al usuario por DM!`)});
                 //enviamos en el canal que el usuario ha sido baneado exitosamenete
 
                 message.reply({embeds: [new Discord.EmbedBuilder()

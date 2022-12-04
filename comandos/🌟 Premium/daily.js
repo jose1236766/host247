@@ -4,7 +4,6 @@ module.exports = {
     name: "daily",
     aliases: ["diario"],
     desc: "Sirve para reclamar tu recompensa diaria",
-    premium: true,
     run: async (client, message, args, prefix) => {
         //leemos la economia el usuario
         let data = await ecoSchema.findOne({userID: message.author.id});
@@ -30,6 +29,7 @@ module.exports = {
         return message.reply(`✅ **Has reclamado tu recompensa diaria de \`${recompensa} monedas\`!**`)
     }
 }
+
 
 /*
 ╔═════════════════════════════════════════════════════╗

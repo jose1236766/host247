@@ -1,3 +1,4 @@
+
 const {asegurar_todo} = require(`${process.cwd()}/utils/funciones.js`);
 const ecoSchema = require(`${process.cwd()}/modelos/economia.js`);
 const Discord = require('discord.js');
@@ -5,7 +6,6 @@ module.exports = {
     name: "balance",
     aliases: ["dinero", "cartera", "bal", "wallet", "bank"],
     desc: "Sirve para ver la cartera de un Usuario",
-    premium: true,
     run: async (client, message, args, prefix) => {
         const user = message.guild.members.cache.get(args[0]) || message.mentions.members.filter(m => m.guild.id == message.guild.id).first() || message.member;
         if(user.bot) return message.reply("❌ **Los bots no puede tener dinero!**");
@@ -20,7 +20,6 @@ module.exports = {
         });
     }
 }
-
 /*
 ╔═════════════════════════════════════════════════════╗
 ║    || - || Desarrollado por dewstouh#1088 || - ||   ║

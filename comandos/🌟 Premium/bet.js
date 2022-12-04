@@ -3,7 +3,6 @@ module.exports = {
     name: "bet",
     aliases: ["apostar"],
     desc: "Sirve para apostar una cantidad de dinero",
-    premium: true,
     run: async (client, message, args, prefix) => {
         //leemos la economia el usuario
         let data = await ecoSchema.findOne({ userID: message.author.id });
@@ -37,6 +36,7 @@ module.exports = {
         }
     }
 }
+
 
 /*
 ╔═════════════════════════════════════════════════════╗

@@ -3,7 +3,6 @@ module.exports = {
     name: "withdraw",
     aliases: ["wd", "sacar"],
     desc: "Sirve para depositar dinero en el banco",
-    premium: true,
     run: async (client, message, args, prefix) => {
         //leemos la economia el usuario
         let data = await ecoSchema.findOne({userID: message.author.id});
@@ -24,10 +23,3 @@ module.exports = {
        return message.reply(`✅ **Has sacado \`${cantidad} monedas\` de tu banco!**`);
     }
 }
-
-/*
-╔═════════════════════════════════════════════════════╗
-║    || - || Desarrollado por dewstouh#1088 || - ||   ║
-║    ----------| discord.gg/MBPsvcphGf |----------    ║
-╚═════════════════════════════════════════════════════╝
-*/

@@ -1,3 +1,4 @@
+
 const ecoSchema = require(`${process.cwd()}/modelos/economia.js`);
 const duration = require('humanize-duration');
 var trabajos = [
@@ -10,7 +11,6 @@ module.exports = {
     name: "work",
     aliases: ["trabajar"],
     desc: "Sirve para trabajar y conseguir monedas cada 3h",
-    premium: true,
     run: async (client, message, args, prefix) => {
         //leemos la economia el usuario
         let data = await ecoSchema.findOne({userID: message.author.id});
@@ -39,10 +39,3 @@ module.exports = {
         return message.reply(`✅ **Has trabajado como \`${trabajo}\` y has recibido una recompensa de \`${recompensa} monedas\`!**`)
     }
 }
-
-/*
-╔═════════════════════════════════════════════════════╗
-║    || - || Desarrollado por dewstouh#1088 || - ||   ║
-║    ----------| discord.gg/MBPsvcphGf |----------    ║
-╚═════════════════════════════════════════════════════╝
-*/

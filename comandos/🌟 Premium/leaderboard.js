@@ -1,23 +1,26 @@
-const {paginacion} = require(`${process.cwd()}/utils/funciones.js`);
 const ecoSchema = require(`${process.cwd()}/modelos/economia.js`);
-//definimos las medallas de los top 3 usuarios con más dinero
-var medallas = {
-    1: "🥇",
-    2: "🥈",
-    3: "🥉",
-}
-
 module.exports = {
-    name: "leaderboard",
-    aliases: ["lb", "top100", "top", "lb-economia", "ecolb", "top-eco"],
-    desc: "Sirve para ver la latencia del Bot",
-    premium: true,
+    name: "deposit",
+    aliases: ["depositar", "dep"],
+    desc: "Sirve para depositar dinero en el banco",
     run: async (client, message, args, prefix) => {
-        const total = await ecoSchema.find();
-        await message.guild.members.fetch();
-        const ordenado = total.filter(member => message.guild.members.cache.get(member.userID)).sort((a, b) => Number((b.dinero+b.banco) - (a.dinero+a.banco)));
-        const texto = ordenado.map((miembro, index) => `${medallas[index+1] ?? ""} \`${index+1}\` - <@${miembro.userID}> *\`${message.guild.members.cache.get(miembro.userID).user.tag}\`*\n**Dinero:** \`${miembro.dinero}\`\n**Banco:** \`${miembro.banco}\`\n\n`)
-        paginacion(client, message, texto, "💸 LEADERBOARD DE ECONOMÍA 💸")
+        //leemos la economia el usuario
+        let data = await ecoSchema.findOne({userID: message.author.id});
+        let cantidad = args[0];
+        //comprobaciones previas
+        if(["todo", "all-in", "all"].includes(args[0])) {
+            cantidad = data.dinero
+        } else {
+            if(isNaN(cantidad) || cantidad <= 0 || cantidad % 1 != 0) return message.reply("❌ **No has especificado una cantidad válida para depositar!**");
+            if(cantidad > data.dinero) return message.reply("❌ **No tienes tanto dinero para depositar!**");
+        }
+       await ecoSchema.findOneAndUpdate({userID: message.author.id}, {
+           $inc: {
+               dinero: -cantidad,
+               banco: cantidad
+           }
+       });
+       return message.reply(`✅ **Has depositado \`${cantidad} monedas\` en tu banco!**`);
     }
 }
 

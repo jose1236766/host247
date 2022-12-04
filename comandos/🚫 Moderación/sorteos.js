@@ -20,7 +20,7 @@ module.exports = {
         switch (args[0]) {
             case "start":{
                 let embed = new Discord.EmbedBuilder()
-                .setDescription(`**Uso:** \`${prefix}sorteo <#canal> <duración> <ganadores> <premio>\``)
+                .setDescription(`**Uso:** \`${prefix}sorteo <#canal> <duración> <cuantos ganadores> <premio>\``)
                 .setColor("FF0000");
 
                 let canal = message.guild.channels.cache.get(args[1]) || message.mentions.channels.filter(c => c.guild.id == message.guild.id).first()
@@ -29,11 +29,11 @@ module.exports = {
                 })
                 let tiempo = args[2];
                 if(!tiempo) return message.reply({
-                    embeds: [embed.setTitle(`❌ Tienes que especificar una duración del sorteo válida!`)]
+                    embeds: [embed.setTitle(`❌ Tienes que especificar una duración del sorteo válida ejemplo 1d 24h!`)]
                 })
                 let tiempo_en_ms = ms(args[2]);
                 if(!tiempo_en_ms || isNaN(tiempo_en_ms) || tiempo_en_ms < 0 || tiempo_en_ms % 1 != 0) return message.reply({
-                    embeds: [embed.setTitle(`❌ Tienes que especificar una duración del sorteo válida!`)]
+                    embeds: [embed.setTitle(`❌ Tienes que especificar una duración del sorteo válida ejemplo 1d 24h!`)]
                 })
                 let ganadores = Number(args[3]);
                 if(!ganadores || isNaN(ganadores) || ganadores < 0 || ganadores % 1 != 0) return message.reply({
