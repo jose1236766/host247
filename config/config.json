@@ -3,5 +3,6 @@
     "prefix": "-",
     "mongodb": "mongodb+srv://onebot:xd@cluster0.q5bikpj.mongodb.net/?retryWrites=true&w=majority",
     "ownerIDS": ["766775598327660604"],
-    "color": "#ff0000"
+    "color": "#ff0000",
+    "clienteID": "934263709075906590"
 }
