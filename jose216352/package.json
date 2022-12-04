@@ -1,0 +1,30 @@
+{
+  "name": "one-bot",
+  "version": "1.0.0",
+  "description": "<a href=\"https://discord.gg/MBPsvcphGf\"><img src=\"https://discordapp.com/api/guilds/879397504075063297/widget.png?style=banner2\"></a>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "18.X",
+    "npm": "8.19.2"
+  },
+  "author": "dewstouh#1088",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.8.0",
+    "@distube/soundcloud": "^1.1.0",
+    "@distube/spotify": "^1.2.1",
+    "colors": "^1.4.0",
+    "discord-giveaways": "^6.0.0",
+    "discord-html-transcripts": "^2.6.0",
+    "discord-xp": "^1.1.16",
+    "discord.js": "^14.6.0",
+    "humanize-duration": "^3.27.1",
+    "libsodium-wrappers": "^0.7.9",
+    "mongoose": "^6.2.0",
+    "ms": "^2.1.3"
+  }
+}
